@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Services - COSMIK</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="menu-body">
+
+    <!-- OVERLAY & DRAWER -->
+    <div id="overlay" onclick="toggleDrawer()"></div>
+    <div id="mobile-drawer">
+        <button class="close-drawer" onclick="toggleDrawer()">&times;</button>
+        <div class="drawer-header"><h3>COSMIK</h3></div>
+        <div class="drawer-links">
+            <a href="index.html">Home</a>
+            <a href="men-services.html">Men's Menu</a>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <div class="menu-top-nav">
+        <div class="hamburger-btn" onclick="toggleDrawer()"><i class="fas fa-bars"></i></div>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> BACK</a>
+        <div class="menu-page-title">WOMEN'S MENU</div>
+        <div style="width: 24px;"></div>
+    </div>
+
+    <!-- DYNAMIC MENU CONTAINER -->
+    <div class="menu-container" id="dynamic-menu">
+        <!-- Content will be injected here by JS -->
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="menu_data.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Load Women's menu on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadMenu('Women');
+        });
+    </script>
+</body>
+</html>
