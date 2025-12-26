@@ -1,0 +1,33 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#B8860B;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E6BE8A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C5A009;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Based on user image: Wide styling comb -->
+  <!-- Spine -->
+  <path d="M50 150 Q50 130 70 130 L442 130 Q462 130 462 150 L462 200 L50 200 Z" fill="url(#gold-grad)" />
+  
+  <!-- Teeth -->
+  <g fill="url(#gold-grad)">
+    <rect x="60" y="205" width="15" height="100" rx="5" />
+    <rect x="85" y="205" width="15" height="100" rx="5" />
+    <rect x="110" y="205" width="15" height="100" rx="5" />
+    <rect x="135" y="205" width="15" height="100" rx="5" />
+    <rect x="160" y="205" width="15" height="100" rx="5" />
+    <rect x="185" y="205" width="15" height="100" rx="5" />
+    <rect x="210" y="205" width="15" height="100" rx="5" />
+    <rect x="235" y="205" width="15" height="100" rx="5" />
+    <rect x="260" y="205" width="15" height="100" rx="5" />
+    <rect x="285" y="205" width="15" height="100" rx="5" />
+    <rect x="310" y="205" width="15" height="100" rx="5" />
+    <rect x="335" y="205" width="15" height="100" rx="5" />
+    <rect x="360" y="205" width="15" height="100" rx="5" />
+    <rect x="385" y="205" width="15" height="100" rx="5" />
+    <rect x="410" y="205" width="15" height="100" rx="5" />
+    <rect x="435" y="205" width="15" height="100" rx="5" />
+  </g>
+</svg>

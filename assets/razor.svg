@@ -1,0 +1,25 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="razor-handle" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" /> <!-- SaddleBrown -->
+      <stop offset="50%" style="stop-color:#CD853F;stop-opacity:1" /> <!-- Peru -->
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="razor-blade-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFF8DC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B8860B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Handle -->
+  <path d="M100 400 C80 420, 80 440, 100 460 C120 480, 400 200, 420 180 C440 160, 420 140, 400 120 Z" fill="url(#razor-blade-gold)" stroke="#DAA520" stroke-width="2"/>
+  
+  <!-- Blade Holder/Pivot -->
+  <circle cx="410" cy="150" r="15" fill="#B8860B" stroke="#DAA520" stroke-width="2"/>
+  
+  <!-- Blade -->
+  <path d="M410 150 L350 90 L150 250 L200 300 Z" fill="url(#razor-blade-gold)" stroke="#B8860B" stroke-width="1"/>
+  <path d="M150 250 Q130 270 150 290 L200 300" fill="#DAA520" /> <!-- Blade tip detail -->
+
+</svg>

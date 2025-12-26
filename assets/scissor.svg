@@ -1,0 +1,52 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gold-blade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFF8DC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DAA520;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gold-handle" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#DAA520;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B8860B;stop-opacity:1" />
+    </linearGradient>
+    <filter id="drop-shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="1" dy="1" result="offsetblur"/>
+      <feFlood flood-color="#554400"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Transform group for open scissors -->
+  <g transform="translate(256,256) rotate(-30) translate(-256,-256)">
+    
+    <!-- Move the whole scissor to be centered -->
+    
+    <!-- Lower Half (Blade goes Up-Right, Handle goes Down-Left) -->
+    <!-- Blade -->
+    <path d="M256 256 L462 80 L462 120 L280 280" fill="url(#gold-blade)" stroke="#B8860B" stroke-width="1" stroke-linejoin="miter" style="filter:url(#drop-shadow)"/>
+    <!-- Shank, continuous from pivot -->
+    <path d="M280 280 L200 360" stroke="url(#gold-handle)" stroke-width="15" stroke-linecap="round" />
+    <!-- Handle Ring (Complete Circle) -->
+    <circle cx="170" cy="390" r="45" fill="none" stroke="url(#gold-handle)" stroke-width="12" />
+    
+    <!-- Upper Half (Blade goes Down-Right, Handle goes Up-Left) -->
+    <!-- Blade -->
+    <path d="M256 256 L462 432 L462 392 L280 232" fill="url(#gold-blade)" stroke="#B8860B" stroke-width="1" stroke-linejoin="miter" style="filter:url(#drop-shadow)"/>
+    <!-- Shank -->
+    <path d="M280 232 L200 152" stroke="url(#gold-handle)" stroke-width="15" stroke-linecap="round" />
+    <!-- Handle Ring (Complete Circle) -->
+    <circle cx="170" cy="122" r="45" fill="none" stroke="url(#gold-handle)" stroke-width="12" />
+    
+    <!-- Pivot Screw (Sharp and detailed) -->
+    <circle cx="256" cy="256" r="14" fill="#B8860B" stroke="#DAA520" stroke-width="2" />
+    <circle cx="256" cy="256" r="6" fill="#FFF8DC" />
+    <path d="M250 256 L262 256 M256 250 L256 262" stroke="#8B6508" stroke-width="2" />
+
+  </g>
+</svg>

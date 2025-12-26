@@ -1,0 +1,21 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFF8DC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DAA520;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Based on user image: Oval Hand Mirror -->
+  <!-- Handle -->
+  <path d="M246 380 L246 480 Q256 500 266 480 L266 380" fill="#B8860B" stroke="#8B6508" stroke-width="10" stroke-linecap="round"/>
+  
+  <!-- Frame -->
+  <ellipse cx="256" cy="200" rx="120" ry="160" fill="url(#gold-grad)" />
+  
+  <!-- Glass/Reflection -->
+  <ellipse cx="256" cy="200" rx="100" ry="140" fill="#FFF8DC" fill-opacity="0.3" />
+  <path d="M200 150 Q256 100 312 150" fill="none" stroke="#FFF" stroke-width="5" opacity="0.5" />
+
+</svg>
