@@ -33,6 +33,28 @@ body {
     line-height: 1.6;
 }
 
+/* --- VIDEO BACKGROUND --- */
+.video-bg-wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.video-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+
 h1,
 h2,
 h3,
@@ -67,6 +89,7 @@ h4 {
     width: 90%;
     max-width: 1200px;
     background: rgba(20, 20, 20, 0.95);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     padding: 15px 30px;
     border-radius: 40px;
@@ -223,6 +246,7 @@ body.menu-body .hamburger-btn {
     background: rgba(0, 0, 0, 0.8);
     z-index: 1500;
     display: none;
+    -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
 }
 
@@ -283,8 +307,8 @@ body.menu-body .hamburger-btn {
     position: relative;
     padding: 14px 34px;
     background: rgba(10, 10, 10, 0.35);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     color: var(--gold);
     border-radius: 999px;
     overflow: hidden;
