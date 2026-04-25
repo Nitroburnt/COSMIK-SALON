@@ -31,9 +31,29 @@
         <div style="width: 24px;"></div>
     </div>
 
+    <!-- SEARCH BAR -->
+    <div class="menu-search-wrapper">
+        <div class="search-input-wrapper">
+            <i class="fas fa-search search-icon"></i>
+            <input
+                type="text"
+                id="service-search"
+                class="menu-search-input"
+                placeholder="Search services..."
+                autocomplete="off"
+            >
+        </div>
+    </div>
+
     <!-- DYNAMIC MENU CONTAINER -->
     <div class="menu-container" id="dynamic-menu">
         <!-- Content will be injected here by JS -->
+    </div>
+
+    <!-- NO RESULTS STATE -->
+    <div class="menu-no-results" id="no-results">
+        <i class="fas fa-search"></i>
+        No services found for your search.
     </div>
 
     <!-- SCRIPTS -->
@@ -43,7 +63,13 @@
         // Load Women's menu on page load
         document.addEventListener('DOMContentLoaded', () => {
             loadMenu('Women');
+            initMenuSearch();
         });
     </script>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 </body>
 </html>
