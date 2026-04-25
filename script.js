@@ -194,3 +194,74 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 });
+
+// --- TAGLINE SVG ORBIT ---
+// Uses SVG stroke-dasharray to keep a fixed-length arc orbiting the pill
+// at constant pixel-speed regardless of which part of the perimeter it's on.
+document.addEventListener('DOMContentLoaded', () => {
+    const tagline = document.querySelector('.hero-tagline-rotating');
+    if (!tagline) return;
+
+    document.fonts.ready.then(() => {
+        const W = tagline.offsetWidth;
+        const H = tagline.offsetHeight;
+        const R = H / 2;          // pill fully rounded ends
+        const PAD = 1;            // offset: 1px outside the element edge
+
+        // SVG canvas dimensions (element + 1px all around)
+        const sw = W + PAD * 2;
+        const sh = H + PAD * 2;
+        const sr = R + PAD;       // arc radius for the offset path
+
+        // Pill perimeter path (clockwise, starting top-left arc join)
+        const pathD =
+            `M ${sr} 0 ` +
+            `L ${sw - sr} 0 ` +
+            `A ${sr} ${sr} 0 0 1 ${sw - sr} ${sh} ` +
+            `L ${sr} ${sh} ` +
+            `A ${sr} ${sr} 0 0 1 ${sr} 0`;  // open path — ensures round linecap on dashes
+
+        // Perimeter length = 2 straight sections + full circle of radius sr
+        const perimeter = 2 * (W - H) + 2 * Math.PI * sr;
+        const lineLen   = 75;                    // fixed arc length in pixels
+        const gap       = perimeter - lineLen;
+
+        // Build SVG
+        const ns  = 'http://www.w3.org/2000/svg';
+        const svg = document.createElementNS(ns, 'svg');
+        svg.setAttribute('width',  sw);
+        svg.setAttribute('height', sh);
+        Object.assign(svg.style, {
+            position:      'absolute',
+            top:           `-${PAD}px`,
+            left:          `-${PAD}px`,
+            pointerEvents: 'none',
+            overflow:      'visible',
+            zIndex:        '2'
+        });
+
+        // Orbit line
+        const path = document.createElementNS(ns, 'path');
+        path.setAttribute('d',                pathD);
+        path.setAttribute('fill',             'none');
+        path.setAttribute('stroke',           '#D4AF37');
+        path.setAttribute('stroke-width',     '3');
+        path.setAttribute('stroke-linecap',   'round');
+        path.style['stroke-linecap'] = 'round'; // CSS wins over presentation attr in all browsers
+        path.setAttribute('stroke-dasharray', `${lineLen} ${gap}`);
+        path.setAttribute('stroke-dashoffset','0');
+        path.style.filter    = 'drop-shadow(0 0 2px #D4AF37)';
+        path.style.animation = 'tagline-orbit 3s linear infinite';
+
+        svg.appendChild(path);
+        tagline.appendChild(svg);
+
+        // Inject keyframe once
+        if (!document.getElementById('tagline-orbit-kf')) {
+            const s = document.createElement('style');
+            s.id          = 'tagline-orbit-kf';
+            s.textContent = `@keyframes tagline-orbit { to { stroke-dashoffset: -${Math.ceil(perimeter)}; } }`;
+            document.head.appendChild(s);
+        }
+    });
+});
