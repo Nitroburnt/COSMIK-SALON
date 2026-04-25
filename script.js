@@ -60,3 +60,85 @@ function loadMenu(genderType) {
     // 4. Inject into page
     container.innerHTML = htmlContent;
 }
+
+// --- SCROLL REVEAL OBSERVER ---
+document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".reveal");
+
+    const revealOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                // Stop observing once revealed to only animate once
+                observer.unobserve(entry.target);
+            }
+        });
+    }, revealOptions);
+
+    reveals.forEach(reveal => {
+        revealOnScroll.observe(reveal);
+    });
+});
+
+// --- SCROLLSPY ---
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-links a");
+    const drawerLinks = document.querySelectorAll(".drawer-links a");
+
+    window.addEventListener("scroll", () => {
+        let current = "";
+        
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            // Adjusted offset by 150px to trigger earlier since there's a fixed navbar
+            if (window.scrollY >= sectionTop - 150) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${current}`) {
+                link.classList.add("active");
+            }
+        });
+
+        drawerLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${current}`) {
+                link.classList.add("active");
+            }
+        });
+    });
+});
+
+// --- VIDEO PARALLAX EFFECT ---
+document.addEventListener("DOMContentLoaded", () => {
+    const videoWrapper = document.querySelector('.video-bg-wrapper');
+    if (!videoWrapper) return;
+
+    window.addEventListener('scroll', () => {
+        // Calculate the maximum scrollable distance
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        
+        if (maxScroll > 0) {
+            // Get scroll progress from 0 to 1 (clamped to prevent overscroll issues on Mac)
+            let scrollProgress = window.scrollY / maxScroll;
+            scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+            
+            // Map progress to a translateY value between +5% and -5%.
+            // Combined with scale(1.15), this guarantees we never see the video edges!
+            // It moves slightly upward as you scroll down, creating the parallax depth.
+            const yPos = 5 - (scrollProgress * 10);
+            
+            // Apply a slight scale to hide the edges while it translates
+            videoWrapper.style.transform = `scale(1.15) translateY(${yPos}%)`;
+        }
+    });
+});
